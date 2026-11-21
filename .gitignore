@@ -1,0 +1,8 @@
+Build/
+Bin/
+docs/
+
+*.pro.user
+
+.workbuddy/
+~$*

@@ -96,3 +96,54 @@ void OpenglControl::wheelEvent(QWheelEvent *wheelEvent)
     }
     this->update();
 }
+
+void OpenglControl::mousePressEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton)
+    {
+        m_isDragging = true;
+        m_lastPos = event->pos();
+    }
+}
+
+void OpenglControl::mouseMoveEvent(QMouseEvent *event)
+{
+    if(!m_isDragging)
+    {
+        return ;
+    }
+
+    // 计算鼠标移动的增量（距离上一次移动了多少）
+    float deltaX = event->pos().x() - m_lastPos.x();
+    float deltaY = event->pos().y() - m_lastPos.y();
+
+
+    // 左键拖拽：平移相机（或者你也可以用中键）
+    if (event->buttons() == Qt::LeftButton)
+    {
+        // 判断往哪边拖（这里按你底层库函数自己调，注意左右方向可能需要乘 -1 或不变）
+        if (deltaX > 0)
+            m_cameraLibrary.moveToLeft();
+        else if (deltaX < 0)
+            m_cameraLibrary.moveToRight();
+
+        if (deltaY > 0)
+            m_cameraLibrary.moveToUp();
+        else if (deltaY < 0)
+            m_cameraLibrary.moveToDown();
+    }
+
+    // 更新鼠标位置，准备下一次计算
+    m_lastPos = event->pos();
+
+    // 触发重绘
+    this->update();
+}
+
+void OpenglControl::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton)
+    {
+        m_isDragging = false; // 踩刹车，重置状态
+    }
+}

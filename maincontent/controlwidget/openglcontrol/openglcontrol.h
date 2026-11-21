@@ -30,8 +30,15 @@ protected:
 private:
     QList <ObjectParent*> m_objectList;
     void wheelEvent(QWheelEvent *wheelEvent) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 private:
     CameraLibrary m_cameraLibrary;
+
+    QPoint m_lastPos; // 记录鼠标上一次的位置
+
+    bool m_isDragging = false; // 记录是否正在拖拽
 };
 
 #endif

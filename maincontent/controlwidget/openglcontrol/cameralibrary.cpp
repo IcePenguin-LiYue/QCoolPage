@@ -92,22 +92,22 @@ void CameraLibrary::moveToBackward()
 
 void CameraLibrary::moveToLeft()
 {
-    m_position += m_right * -0.1f;
+    m_position += m_right * -1.0f;//m_right * -0.1f;
 }
 
 void CameraLibrary::moveToRight()
 {
-    m_position += m_right * 0.1f;
+    m_position += m_right * 1.0f;
 }
 
 void CameraLibrary::moveToUp()
 {
-    m_position += m_up * -0.1f;
+    m_position += m_up * -1.0f;
 }
 
 void CameraLibrary::moveToDown()
 {
-    m_position += m_up * 0.1f;
+    m_position += m_up * 1.0f;
 }
 
 void CameraLibrary::processMouseEvent(float deltaX, float deltaY)

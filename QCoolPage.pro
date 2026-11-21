@@ -16,6 +16,12 @@ OBJECTS_DIR = $$OUT_PWD/objfile
 UI_DIR = $$OUT_PWD/uifile
 RCC_DIR = $$OUT_PWD/rcfile
 
+CONFIG(debug, debug|release) {
+    DESTDIR = $$PWD/Bin/debug
+} else {
+    DESTDIR = $$PWD/Bin/release
+}
+
 
 SOURCES += main.cpp\
         mainwindow.cpp \
