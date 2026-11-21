@@ -26,16 +26,11 @@ https://pan.baidu.com/s/1VFC329KHYaalYUw-p_4umA
 
 原作者:`灏夏星辰` 
 
-本人：IcePenguin
-
+本人：IcePenguin-LiYue
 
 发布时间：2021年01月07日
 可跨平台，已兼容Linux平台
 持续更新中...
-
-
-
-
 
 更新时间：2026年11月21日
 
